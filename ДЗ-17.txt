@@ -4,19 +4,27 @@ class Program
 {
     static void Main()
     {
+        const int MinNumber = 1;
+        const int MaxNumber = 100;
+        const int BaseNumber = 2;
+        const int InitialPower = 0;
+        const int InitialResult = 1;
+        
         Random random = new Random();
-        int number = random.Next(1, 101); 
+        int number = random.Next(MinNumber, MaxNumber + 1); 
         Console.WriteLine($"Заданное число: {number}");
 
-        int power = 0;        
-        int result = 1;       
+        int power = InitialPower;        
+        int result = InitialResult;       
 
-       
+        // Находим минимальную степень двойки, превосходящую заданное число
         while (result <= number)
         {
-            result *= 2; 
+            result *= BaseNumber; 
             power++;      
         }
 
-        Console.WriteLine($"Минимальная степень двойки: 2^{power} = {result}");
+        Console.WriteLine($"Минимальная степень двойки: {BaseNumber}^{power} = {result}");
         Console.WriteLine($"Проверка: {number} < {result}");
+    }
+}
